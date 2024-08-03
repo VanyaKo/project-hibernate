@@ -87,7 +87,7 @@
     <div class="create__group">
         <span>
             <button type="submit" onclick='createAcc()'>
-                <img src="/img/save.png" alt="">
+                <img src="img/save.png" alt="">
             </button>
         </span>
     </div>
@@ -167,10 +167,10 @@
                     + new Date(item.birthday).toLocaleDateString() + "</td><td>"
                     + item.banned + "</td><td>"
                     + "<button id='button_edit_" + item.id + "' onclick='editAcc(" + item.id + ")'>"
-                    + "<img src='/img/edit.png' class='img_edit'>"
+                    + "<img src='img/edit.png' class='img_edit'>"
                     + "</button>" + "</td><td>"
                     + "<button id='button_delete_" + item.id + "' onclick='deleteAcc(" + item.id + ")'>"
-                    + "<img src='/img/delete.png' class='img_delete'>"
+                    + "<img src='img/delete.png' class='img_delete'>"
                     + "</button>" + "</td>")
                     .appendTo('#table_1');
             });
@@ -232,7 +232,7 @@
         $(identifier_delete).remove();
 
         // replace "edit" button with "save"
-        let save_image_tag = "<img src='/img/save.png' class='img_save'>";
+        let save_image_tag = "<img src='img/save.png' class='img_save'>";
         $(identifier_edit).html(save_image_tag);
         let property_save_tag = "saveAcc(" + id + ")";
         $(identifier_edit).attr("onclick", property_save_tag);
