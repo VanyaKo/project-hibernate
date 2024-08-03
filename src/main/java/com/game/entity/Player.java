@@ -1,15 +1,28 @@
 package com.game.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.NamedQuery;
 
 import java.util.Date;
 
+@Entity
 @Table(name = "player", schema = "rpg")
+@NamedQuery(name = Player.QUERY_GET_ALL_COUNT, query = "select count(p) from Player p")
 public class Player {
+    public static final String QUERY_GET_ALL_COUNT = "QUERY_GET_ALL_COUNT";
+
+    @Id
     @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "player_sequence")
+    @SequenceGenerator(name = "player_sequence", initialValue = 41, allocationSize = 1)
     private Long id;
 
     @Column(length = 12, nullable = false)
